@@ -126,16 +126,6 @@
       color: #9ca3af;
       text-align: center;
     }
-    .success-msg {
-      display: none;
-      padding: 16px;
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      border-radius: 10px;
-      color: #166534;
-      font-size: 15px;
-      margin-bottom: 12px;
-    }
   </style>
 </head>
 <body>
@@ -149,14 +139,21 @@
       大多数表格导出插件要么检测不到，要么把合并单元格导得错位，要么分页数据缺一半。这个工具只做一件事：让你拿到一个能直接用的表格文件，而不是一个需要手动修的文件。
     </p>
 
-    <div class="success-msg" id="successMsg">
-      ✅ 已加入。MVP 上架 Chrome 商店时，你会第一时间收到通知。
-    </div>
-
-  <form class="form-row" id="waitlistForm" action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="511fceb2-261b-4d7d-b18b-8674c293ffa9">
+    <!-- ⚠️ 记得替换下方 value 里面的 Access_Key -->
+    <form class="form-row" action="https://api.web3forms.com/submit" method="POST">
+      
+      <!-- 你的 Web3Forms Access Key -->
+      <input type="hidden" name="access_key" value="511fceb2-261b-4d7d-b18b-8674c293ffa9">
+      
+      <!-- 邮件标题 -->
+      <input type="hidden" name="subject" value="有人加入了表格导出插件的等待列表！">
+      
+      <!-- 邮箱输入框 (name 改为 user_email 防止内容被吞) -->
+      <input type="email" name="user_email" placeholder="you@example.com" required aria-label="邮箱地址">
+      
       <button type="submit">加入等待列表</button>
     </form>
+    
     <p class="microcopy"><strong>不需要公司信息，不绑卡。</strong> 只发一次上架通知。</p>
 
     <div class="proof">
@@ -184,38 +181,5 @@
     </div>
 
   </div>
-
-   <script>
-    const form = document.getElementById('waitlistForm');
-    const successMsg = document.getElementById('successMsg');
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const formData = new FormData(form);
-      // 将表单数据转换为 JSON 格式
-      const object = Object.fromEntries(formData);
-      const json = JSON.stringify(object);
-
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: json
-        });
-        if (res.ok) {
-          form.style.display = 'none';
-          successMsg.style.display = 'block';
-          document.querySelector('.microcopy').style.display = 'none';
-        } else {
-          alert('提交失败，请稍后再试。');
-        }
-      } catch (err) {
-        alert('网络错误，请稍后再试。');
-      }
-    });
-  </script>
 </body>
 </html>
