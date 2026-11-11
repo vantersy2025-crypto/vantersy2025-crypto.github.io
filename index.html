@@ -25,7 +25,7 @@
     .form-row {
       display: flex;
       gap: 10px;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       flex-wrap: wrap;
     }
     .form-row input[type="email"] {
@@ -37,6 +37,7 @@
       border-radius: 10px;
       outline: none;
       transition: border 0.15s;
+      background-color: #fff;
     }
     .form-row input[type="email"]:focus { border-color: #2563eb; }
     .form-row button {
@@ -53,8 +54,16 @@
     }
     .form-row button:hover { background: #1d4ed8; }
     
+    .incentive {
+      font-size: 14px;
+      color: #059669;
+      font-weight: 500;
+      margin-bottom: 32px;
+    }
+
     .microcopy { font-size: 13px; color: #9ca3af; margin-bottom: 40px; }
     .microcopy strong { color: #6b7280; }
+    
     .proof { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #6b7280; margin-bottom: 40px; padding: 12px 16px; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; }
     .proof .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; flex-shrink: 0; }
     
@@ -77,22 +86,23 @@
       大多数表格导出插件要么检测不到，要么把合并单元格导得错位，要么分页数据缺一半。这个工具只做一件事：让你拿到一个能直接用的表格文件，而不是一个需要手动修的文件。
     </p>
 
-    <!-- 原生表单提交，没有任何 JS 拦截 -->
-    <form class="form-row" action="https://api.web3forms.com/submit" method="POST">
+    <!-- autocomplete="off" 防止浏览器自动填充你的邮箱 -->
+    <form class="form-row" action="https://api.web3forms.com/submit" method="POST" autocomplete="off">
       
-      <!-- ⚠️ 必改：把下面双引号里的内容换成你的真实 Access Key -->
+      <!-- ⚠️ 必改：保留你之前填好的真实 Access Key -->
       <input type="hidden" name="access_key" value="511fceb2-261b-4d7d-b18b-8674c293ffa9">
       
       <!-- 邮件标题 -->
       <input type="hidden" name="subject" value="有人加入了表格导出插件的等待列表！">
       
-      <!-- 邮箱输入框 -->
-      <input type="email" name="user_email" placeholder="vantersy2025@gmail.com" required aria-label="邮箱地址">
+      <!-- 输入框 (加了 autocomplete="off") -->
+      <input type="email" name="user_email" placeholder="输入你的常用邮箱" required aria-label="邮箱地址" autocomplete="off">
       
       <button type="submit">加入等待列表</button>
     </form>
     
-    <p class="microcopy"><strong>不需要公司信息，不绑卡。</strong> 只发一次上架通知。</p>
+    <!-- 新增：白嫖福利，极大提升转化率 -->
+    <p class="incentive">🎁 加入等待列表，上架后免费获得 Pro 版 1 年</p>
 
     <div class="proof">
       <span class="dot"></span>
@@ -115,7 +125,7 @@
     </div>
 
     <div class="footer">
-      个人开发 · 无需注册公司即可上架 Chrome 商店 · 早期用 Creem 收款，无需企业主体
+      独立开发者作品 · 绝不发送垃圾邮件 · 随时可退订
     </div>
 
   </div>
