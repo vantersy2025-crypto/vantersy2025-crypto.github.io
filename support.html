@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Support — Screen Recorder</title>
+    <style>
+      :root { --ink:#0f1115; --muted:#6b7280; --line:rgba(15,17,21,.1); --bg:#f7f8fa; }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+      .wrap { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+      h1 { font-size:30px; letter-spacing:-.02em; margin:0 0 8px; }
+      h2 { font-size:17px; margin:34px 0 8px; }
+      p, li { color:var(--muted); }
+      a { color:var(--ink); }
+      .card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px 22px; margin-top:18px; }
+      code { background:rgba(127,127,127,.12); padding:1px 6px; border-radius:5px; font-size:14px; }
+      ul { padding-left:20px; }
+      @media (prefers-color-scheme: dark) { :root { --ink:#f4f5f7; --muted:#9aa1ac; --line:rgba(255,255,255,.12); --bg:#0d0f12; } .card { background:#16191e; } }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Support</h1>
+      <p>Something not working? Start here — most issues are one of the five below.</p>
+
+      <h2>1. Nothing is recorded (0 MB file)</h2>
+      <p>
+        The source produced no video, so there is nothing to save. This happens when you share a <em>window</em>
+        and that window is minimized or closed. Share the entire screen instead, or keep the shared window visible.
+      </p>
+
+      <h2>2. The saved file shows 0:00</h2>
+      <p>
+        Files saved before version 0.5.0 had no duration. Re-save with a current version — recordings now get the
+        correct duration written at save time.
+      </p>
+
+      <h2>3. MP4 is not available</h2>
+      <p>
+        Some Chrome builds do not ship the MP4 encoder. The settings page tells you when this happens and falls
+        back to WebM automatically.
+      </p>
+
+      <h2>4. The microphone does not record</h2>
+      <p>
+        Microphone is off by default. Turn it on in the settings page and accept the browser prompt. If the prompt
+        never appears, allow microphone access for Chrome in your system privacy settings.
+      </p>
+
+      <h2>5. A recording was lost after a crash</h2>
+      <p>
+        Open the recorder window — unfinished recordings are listed there and can be saved. The file is written
+        continuously while recording, so a crash should leave a playable file behind.
+      </p>
+
+      <h2>Still stuck? Send diagnostics</h2>
+      <div class="card">
+        <p style="margin-top:0">
+          Open the settings page and click <strong>Copy diagnostics</strong>. It contains the extension version,
+          your browser and OS, your settings and the last error — never any recording content. Paste it into your email.
+        </p>
+        <p style="margin-bottom:0">Email: <a href="mailto:vantersy2025@gmail.com">vantersy2025@gmail.com</a></p>
+      </div>
+
+      <p style="margin-top:34px"><a href="index.html">← Back to home</a> · <a href="privacy.html">Privacy policy</a></p>
+    </div>
+  </body>
+</html>

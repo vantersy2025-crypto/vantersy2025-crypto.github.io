@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — Screen Recorder</title>
+    <style>
+      :root { --ink:#0f1115; --muted:#6b7280; --line:rgba(15,17,21,.1); --bg:#f7f8fa; }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+      .wrap { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+      h1 { font-size:30px; letter-spacing:-.02em; margin:0 0 6px; }
+      h2 { font-size:18px; margin:34px 0 8px; }
+      h3 { font-size:15px; margin:22px 0 6px; }
+      p, li, td, th { color:var(--muted); }
+      table { width:100%; border-collapse:collapse; margin:12px 0; font-size:14.5px; }
+      th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+      th { color:var(--ink); font-weight:600; }
+      code { background:rgba(127,127,127,.12); padding:1px 6px; border-radius:5px; font-size:13.5px; }
+      .updated { color:var(--muted); font-size:14px; margin:0 0 6px; }
+      .lang { margin-top:60px; padding-top:26px; border-top:1px solid var(--line); }
+      a { color:var(--ink); }
+      @media (prefers-color-scheme: dark) { :root { --ink:#f4f5f7; --muted:#9aa1ac; --line:rgba(255,255,255,.12); --bg:#0d0f12; } }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: November 12, 2026</p>
+      <p>
+        Core commitment: this extension does not collect, upload, or store any of your screen recordings or audio.
+        Everything is processed locally in your browser.
+      </p>
+
+      <h2>1. Data collection and use</h2>
+      <p>
+        We do <strong>not</strong> collect personally identifiable information, do <strong>not</strong> include
+        ad-tracking code, and do <strong>not</strong> record your browsing history. Any video, audio, microphone sound
+        or page content you record is encoded and processed <strong>only on your device</strong>. It is never uploaded
+        to our servers or to any third party.
+      </p>
+
+      <h2>2. Permissions</h2>
+      <table>
+        <thead><tr><th>Permission</th><th>Why it is needed</th></tr></thead>
+        <tbody>
+          <tr><td><code>tabCapture</code></td><td>Capture the video and audio of the tab you pick, only after you click the extension icon.</td></tr>
+          <tr><td><code>activeTab</code></td><td>Identify the tab you are acting on, in order to start the recording.</td></tr>
+          <tr><td><code>offscreen</code></td><td>Keep the recording session alive in a hidden document so minimizing or switching tabs does not stop it.</td></tr>
+          <tr><td><code>storage</code></td><td>Store your preferences (video format, microphone toggle) and the current session state locally.</td></tr>
+          <tr><td><code>downloads</code></td><td>Write the finished file to the folder you choose.</td></tr>
+          <tr><td><code>notifications</code></td><td>Show the elapsed time and a Stop button in the system notification area while recording.</td></tr>
+          <tr><td><code>unlimitedStorage</code></td><td>Buffer in-progress recordings locally so a crash does not lose the take.</td></tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Microphone</strong> is accessed only through the standard <code>getUserMedia</code> API, and only after
+        you enable it in the settings page.
+      </p>
+      <p><strong>No host permissions are requested.</strong> The extension does not read the pages you visit.</p>
+
+      <h2>3. Third-party services</h2>
+      <p>None. No SDKs, no analytics, no trackers. All data stays private and offline.</p>
+
+      <h2>4. Contact</h2>
+      <p>Questions about this policy: <a href="mailto:vantersy2025@gmail.com">vantersy2025@gmail.com</a></p>
+
+      <div class="lang">
+        <h1>隐私政策</h1>
+        <p class="updated">最后更新：2026 年 11 月 12 日</p>
+        <p>核心承诺：本扩展不收集、不上传、不存储用户的任何屏幕录制内容或音频。所有处理均在您的本地浏览器中完成。</p>
+
+        <h2>1. 数据收集与使用</h2>
+        <p>
+          我们不收集任何个人身份信息，不包含任何广告追踪代码，不记录您的浏览历史。您录制的视频、音频、麦克风声音以及网页画面，
+          均仅在您的本地设备上编码和处理，绝不会通过互联网上传至我们的服务器或任何第三方服务器。
+        </p>
+
+        <h2>2. 权限说明</h2>
+        <table>
+          <thead><tr><th>权限</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td><code>tabCapture</code></td><td>仅在您主动点击扩展图标后，捕获您所选标签页的画面和声音。</td></tr>
+            <tr><td><code>activeTab</code></td><td>识别您当前操作的标签页，作为启动录制的依据。</td></tr>
+            <tr><td><code>offscreen</code></td><td>在隐藏文档中维持录制会话，确保最小化窗口或切换标签页时录制不中断。</td></tr>
+            <tr><td><code>storage</code></td><td>在本地保存您的录制偏好（视频格式、麦克风开关）以及当前录制状态。</td></tr>
+            <tr><td><code>downloads</code></td><td>将录制好的视频文件保存到您选择的本地位置。</td></tr>
+            <tr><td><code>notifications</code></td><td>录制过程中在系统通知区显示计时与「停止录制」按钮。</td></tr>
+            <tr><td><code>unlimitedStorage</code></td><td>录制期间在本地临时缓存视频数据，防止因磁盘空间不足导致录像丢失。</td></tr>
+          </tbody>
+        </table>
+        <p>麦克风：只有您在设置页主动开启后，才会通过浏览器标准的 <code>getUserMedia</code> 请求；不开启则完全不访问。</p>
+        <p><strong>不申请任何主机权限</strong>，不读取您访问的网页内容。</p>
+
+        <h2>3. 第三方服务</h2>
+        <p>本扩展不包含任何第三方 SDK、分析工具或数据追踪器。您的所有数据完全私密、完全离线。</p>
+
+        <h2>4. 联系我们</h2>
+        <p>如对本隐私政策有疑问：<a href="mailto:vantersy2025@gmail.com">vantersy2025@gmail.com</a></p>
+      </div>
+
+      <p style="margin-top:36px"><a href="index.html">← Back to home</a> · <a href="support.html">Support</a></p>
+    </div>
+  </body>
+</html>
