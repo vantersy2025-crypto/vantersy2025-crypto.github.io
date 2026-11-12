@@ -1,133 +1,118 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>一键把网页表格干净地导进 Excel — 等待列表</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f7f8fa;
-      color: #1a1a2e;
-      line-height: 1.7;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .container { max-width: 640px; padding: 64px 24px 48px; width: 100%; }
-    .eyebrow { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #6b7280; margin-bottom: 16px; }
-    h1 { font-size: 32px; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em; margin-bottom: 16px; }
-    h1 .accent { color: #2563eb; }
-    .subhead { font-size: 17px; color: #4b5563; margin-bottom: 32px; }
-    
-    .form-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 8px;
-      flex-wrap: wrap;
-    }
-    .form-row input[type="email"] {
-      flex: 1;
-      min-width: 220px;
-      padding: 14px 16px;
-      font-size: 16px;
-      border: 1.5px solid #d1d5db;
-      border-radius: 10px;
-      outline: none;
-      transition: border 0.15s;
-      background-color: #fff;
-    }
-    .form-row input[type="email"]:focus { border-color: #2563eb; }
-    .form-row button {
-      padding: 14px 24px;
-      font-size: 16px;
-      font-weight: 600;
-      background: #2563eb;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.15s;
-      white-space: nowrap;
-    }
-    .form-row button:hover { background: #1d4ed8; }
-    
-    .incentive {
-      font-size: 14px;
-      color: #059669;
-      font-weight: 500;
-      margin-bottom: 32px;
-    }
-
-    .microcopy { font-size: 13px; color: #9ca3af; margin-bottom: 40px; }
-    .microcopy strong { color: #6b7280; }
-    
-    .proof { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #6b7280; margin-bottom: 40px; padding: 12px 16px; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; }
-    .proof .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; flex-shrink: 0; }
-    
-    .pain-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 32px; }
-    @media (min-width: 560px) { .pain-grid { grid-template-columns: 1fr 1fr 1fr; } }
-    .pain-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 18px 16px; }
-    .pain-card .label { font-size: 12px; font-weight: 600; color: #dc2626; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px; }
-    .pain-card .fix { font-size: 14px; color: #1a1a2e; font-weight: 500; line-height: 1.5; }
-    .footer { margin-top: 48px; font-size: 13px; color: #9ca3af; text-align: center; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Screen Recorder</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        h1, h2 {
+            color: #111;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 0.3em;
+            margin-top: 1.5em;
+        }
+        h1 { margin-top: 0; font-size: 2em; }
+        h2 { font-size: 1.4em; }
+        p { margin-bottom: 1em; }
+        ul { padding-left: 20px; margin-bottom: 1em; }
+        li { margin-bottom: 0.5em; }
+        .highlight {
+            background-color: #e8f4fd;
+            border-left: 4px solid #1a73e8;
+            padding: 15px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+        .lang-switch a { color: #1a73e8; text-decoration: none; }
+    </style>
 </head>
 <body>
-  <div class="container">
+    <div class="container">
+        <div class="lang-switch">
+            <a href="#english">English Version Below ⬇️</a>
+        </div>
 
-    <div class="eyebrow">网页表格 → 干净 Excel</div>
+        <!-- 中文版本 -->
+        <h1>隐私政策 (Privacy Policy)</h1>
+        <p><strong>最后更新日期：</strong>2026年11月12日</p>
+        
+        <div class="highlight">
+            核心承诺：本扩展不收集、不上传、不存储用户的任何屏幕录制内容或音频。所有处理均在用户的本地浏览器中完成。
+        </div>
 
-    <h1>把网页上的表格导进 Excel，<br>但<span class="accent">行列不乱、合并单元格不崩</span>。</h1>
+        <h2>1. 数据收集与使用</h2>
+        <p>本屏幕录制扩展（以下简称“本扩展”）严格遵守隐私保护原则。我们<strong>不收集</strong>任何个人身份信息，<strong>不包含</strong>任何广告追踪代码，<strong>不记录</strong>您的浏览历史。</p>
+        <p>您在扩展中录制的视频、音频、麦克风声音以及网页画面，均<strong>仅在您的本地设备上</strong>进行编码和处理，绝不会通过互联网上传至我们的服务器或任何第三方服务器。</p>
 
-    <p class="subhead">
-      大多数表格导出插件要么检测不到，要么把合并单元格导得错位，要么分页数据缺一半。这个工具只做一件事：让你拿到一个能直接用的表格文件，而不是一个需要手动修的文件。
-    </p>
+        <h2>2. 扩展权限说明</h2>
+        <p>为了向您提供完整的屏幕录制功能，本扩展申请了以下最低限度的权限：</p>
+        <ul>
+            <li><strong>tabCapture (标签页捕获)：</strong>仅在您主动点击扩展图标后，用于捕获您所选标签页的画面和声音。</li>
+            <li><strong>activeTab (活动标签页)：</strong>用于识别您当前正在操作的标签页，作为启动录制的前提。</li>
+            <li><strong>offscreen (离屏文档)：</strong>用于在后台安全地维持录制会话，确保当您最小化窗口或切换标签页时，录制不会中断或丢失。</li>
+            <li><strong>storage (存储)：</strong>用于在您的本地浏览器中保存您的录制偏好设置（如分辨率、帧率）。</li>
+            <li><strong>downloads (下载)：</strong>用于将录制好的视频文件保存到您的本地硬盘中。</li>
+            <li><strong>unlimitedStorage (无限存储)：</strong>用于在录制过程中临时存储视频数据，防止因磁盘空间不足导致录像丢失。</li>
+        </ul>
 
-    <!-- autocomplete="off" 防止浏览器自动填充你的邮箱 -->
-    <form class="form-row" action="https://api.web3forms.com/submit" method="POST" autocomplete="off">
-      
-      <!-- ⚠️ 必改：保留你之前填好的真实 Access Key -->
-      <input type="hidden" name="access_key" value="511fceb2-261b-4d7d-b18b-8674c293ffa9">
-      
-      <!-- 邮件标题 -->
-      <input type="hidden" name="subject" value="有人加入了表格导出插件的等待列表！">
-      
-      <!-- 输入框 (加了 autocomplete="off") -->
-      <input type="email" name="user_email" placeholder="输入你的常用邮箱" required aria-label="邮箱地址" autocomplete="off">
-      
-      <button type="submit">加入等待列表</button>
-    </form>
-    
-    <!-- 新增：白嫖福利，极大提升转化率 -->
-    <p class="incentive">🎁 加入等待列表，上架后免费获得 Pro 版 1 年</p>
+        <h2>3. 第三方服务</h2>
+        <p>本扩展不包含任何第三方SDK、分析工具或数据追踪器。您的所有数据都是完全私密和离线的。</p>
 
-    <div class="proof">
-      <span class="dot"></span>
-      <span>正在基于 <strong>Table Capture、Table to CSV、Table2Excel 等 10+ 插件的 1—3 星差评</strong> 确定 MVP 范围</span>
+        <h2>4. 联系我们</h2>
+        <p>如果您对本隐私政策有任何疑问，请通过以下邮箱联系我们：<br>
+        <strong>你的联系邮箱@gmail.com</strong></p>
+
+        <br><hr><br>
+
+        <!-- 英文版本 -->
+        <h1 id="english">Privacy Policy</h1>
+        <p><strong>Last Updated:</strong> November 12, 2026</p>
+
+        <div class="highlight">
+            Core Commitment: This extension does not collect, upload, or store any of your screen recordings or audio. All processing is done locally within your browser.
+        </div>
+
+        <h2>1. Data Collection and Use</h2>
+        <p>This screen recording extension (the "Extension") strictly respects your privacy. We <strong>do not collect</strong> any personally identifiable information, <strong>do not include</strong> any ad-tracking code, and <strong>do not record</strong> your browsing history.</p>
+        <p>Any video, audio, microphone sound, or web page content you record using the Extension is encoded and processed <strong>only on your local device</strong>. It is never uploaded to our servers or any third-party servers via the internet.</p>
+
+        <h2>2. Permissions Explanation</h2>
+        <p>To provide full screen recording capabilities, the Extension requests the following minimal permissions:</p>
+        <ul>
+            <li><strong>tabCapture:</strong> Used to capture the video and audio of your selected tab, strictly after you click the extension icon.</li>
+            <li><strong>activeTab:</strong> Used to identify the tab you are currently interacting with to initiate recording.</li>
+            <li><strong>offscreen:</strong> Used to safely maintain the recording session in the background, ensuring that recording does not stop or get lost if you minimize the window or switch tabs.</li>
+            <li><strong>storage:</strong> Used to save your recording preferences (e.g., resolution, frame rate) locally in your browser.</li>
+            <li><strong>downloads:</strong> Used to save the recorded video file to your local hard drive.</li>
+            <li><strong>unlimitedStorage:</strong> Used to temporarily store video data during recording to prevent data loss due to insufficient disk space.</li>
+        </ul>
+
+        <h2>3. Third-Party Services</h2>
+        <p>The Extension does not contain any third-party SDKs, analytics tools, or data trackers. All your data remains completely private and offline.</p>
+
+        <h2>4. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us at:<br>
+        <strong>你的联系邮箱@gmail.com</strong></p>
     </div>
-
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="label">差评 #1</div>
-        <div class="fix">检测不到的表格，<br>不再让你“点了没反应”</div>
-      </div>
-      <div class="pain-card">
-        <div class="label">差评 #2</div>
-        <div class="fix">合并单元格展开到<br>它覆盖的每一行，行列对齐</div>
-      </div>
-      <div class="pain-card">
-        <div class="label">差评 #3</div>
-        <div class="fix">分页 / 懒加载表格，<br>导之前告诉你抓全了没有</div>
-      </div>
-    </div>
-
-    <div class="footer">
-      独立开发者作品 · 绝不发送垃圾邮件 · 随时可退订
-    </div>
-
-  </div>
 </body>
 </html>
