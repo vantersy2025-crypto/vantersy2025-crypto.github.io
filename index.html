@@ -15,6 +15,7 @@
         --edge: #0b64c4;
       }
       * { box-sizing: border-box; }
+      [hidden] { display: none !important; }
       body {
         margin: 0;
         font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -87,7 +88,7 @@
 
         <div class="cta">
           <!-- Chrome：已上线 -->
-          <a class="btn" href="https://chromewebstore.google.com/detail/macamgiopdfhgndaconggjjhdmaefnej">
+          <a class="btn" id="btn-chrome" href="https://chromewebstore.google.com/detail/macamgiopdfhgndaconggjjhdmaefnej">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="9"></circle>
               <circle cx="12" cy="12" r="3.2"></circle>
@@ -96,18 +97,16 @@
           </a>
 
           <!-- Edge：上架通过后，把下面这个 <span> 换成注释里那行 <a>，并把链接填进 href -->
-          <!--
-          <a class="btn edge" href="https://microsoftedge.microsoft.com/addons/detail/EDGE_ID">
+          <a class="btn edge" id="btn-edge" href="#" hidden>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M4 15c0-5 4-9 9-9 4 0 7 2 7 5s-3 5-7 5H8"></path>
               <path d="M8 16h8"></path>
             </svg>
             Add to Edge
           </a>
-          -->
-          <span class="btn soon" title="Submitted to Microsoft Edge Add-ons, waiting for certification">Add to Edge — in review</span>
+          <span class="btn soon" id="btn-edge-soon" title="Submitted to Microsoft Edge Add-ons, waiting for certification">Add to Edge — in review</span>
         </div>
-        <div class="cta"><small>Free. No account, no watermark, no time limit.</small></div>
+        <div class="cta"><small id="cta-note">Free. No account, no watermark, no time limit.</small></div>
       </section>
 
       <figure class="shot">
@@ -147,5 +146,38 @@
         <a href="mailto:vantersy2025@gmail.com">vantersy2025@gmail.com</a>
       </footer>
     </div>
+
+    <script>
+      // Edge 商店链接：审核通过后填在这里，页面会自动把 Edge 按钮切成主按钮
+      const EDGE_STORE_URL = '';
+      const CWS_URL = 'https://chromewebstore.google.com/detail/macamgiopdfhgndaconggjjhdmaefnej';
+
+      const ua = navigator.userAgent;
+      const isEdge = /Edg\//.test(ua);
+      const isChrome = /Chrome\//.test(ua) && !isEdge;
+
+      const chromeBtn = document.getElementById('btn-chrome');
+      const edgeBtn = document.getElementById('btn-edge');
+      const edgeSoon = document.getElementById('btn-edge-soon');
+      const note = document.getElementById('cta-note');
+
+      if (EDGE_STORE_URL) {
+        edgeBtn.href = EDGE_STORE_URL;
+        edgeBtn.hidden = false;
+        edgeSoon.hidden = true;
+        if (isEdge) {
+          // Edge 用户：主按钮给 Edge，Chrome 降级为次要
+          edgeBtn.className = 'btn';
+          chromeBtn.className = 'btn ghost';
+          note.textContent = 'Free. No account, no watermark, no time limit.';
+        }
+      } else if (isEdge) {
+        // Edge 版本还在审核：别把用户送到装不了的 Chrome 商店
+        chromeBtn.hidden = true;
+        note.textContent =
+          "You're using Edge. Edge can no longer install extensions from the Chrome Web Store, " +
+          'and the Microsoft Edge Add-ons version is still in certification. Check back in a few days.';
+      }
+    </script>
   </body>
 </html>
