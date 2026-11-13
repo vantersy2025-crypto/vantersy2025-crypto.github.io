@@ -1,10 +1,10 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Screen Recorder — record a tab or screen, save the file</title>
-    <meta name="description" content="A Chrome extension that records a tab or your screen and saves the file instantly. No login, no upload, no watermark." />
+    <meta name="description" content="A browser extension for Chrome and Edge that records a tab or your screen and saves the file instantly. No login, no upload, no watermark." />
     <style>
       :root {
         --ink: #0f1115;
@@ -12,6 +12,7 @@
         --line: rgba(15, 17, 21, 0.1);
         --rec: #ff3b30;
         --bg: #f7f8fa;
+        --edge: #0b64c4;
       }
       * { box-sizing: border-box; }
       body {
@@ -25,15 +26,24 @@
       .dot { width: 26px; height: 26px; border-radius: 50%; background: var(--rec); display: grid; place-items: center; }
       .dot::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #fff; }
       .brand { font-weight: 650; letter-spacing: -0.01em; }
+
       .btn {
-        display: inline-block; padding: 12px 22px; border-radius: 12px;
+        display: inline-flex; align-items: center; gap: 9px;
+        padding: 12px 22px; border-radius: 12px;
         background: var(--ink); color: #fff; text-decoration: none; font-weight: 600;
+        border: 1px solid transparent;
       }
-      .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+      .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+      .btn.edge { background: var(--edge); color: #fff; }
+      .btn.soon { background: transparent; color: var(--muted); border: 1px dashed var(--line); cursor: default; }
+      .btn svg { flex: none; }
+
       .hero { padding: 56px 0 8px; }
       .hero h1 { font-size: 46px; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 16px; max-width: 720px; }
       .hero p { font-size: 19px; color: var(--muted); max-width: 620px; margin: 0 0 28px; }
-      .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+      .cta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+      .cta small { color: var(--muted); font-size: 13px; width: 100%; margin-top: 2px; }
+
       .shot {
         margin: 52px auto 0; max-width: 560px; border-radius: 16px; overflow: hidden;
         border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(15, 17, 21, 0.12);
@@ -56,6 +66,8 @@
         .card, .strip { background: #16191e; }
         .btn { background: #f4f5f7; color: #0d0f12; }
         .btn.ghost { background: transparent; color: #f4f5f7; }
+        .btn.edge { background: #1a73e8; color: #fff; }
+        .btn.soon { background: transparent; color: var(--muted); }
       }
     </style>
   </head>
@@ -72,11 +84,30 @@
           No login, no upload, no time limit, no watermark. Recording is written to your disk as you go,
           so a crash or a closed window does not lose the take.
         </p>
-        <!-- 上架后把下面这个链接换成 https://chromewebstore.google.com/detail/<你的ID> -->
+
         <div class="cta">
-          <a class="btn" href="https://chromewebstore.google.com/detail/PLACEHOLDER">Add to Chrome — free</a>
-          <a class="btn ghost" href="#how">How it works</a>
+          <!-- Chrome：已上线 -->
+          <a class="btn" href="https://chromewebstore.google.com/detail/macamgiopdfhgndaconggjjhdmaefnej">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <circle cx="12" cy="12" r="3.2"></circle>
+            </svg>
+            Add to Chrome
+          </a>
+
+          <!-- Edge：上架通过后，把下面这个 <span> 换成注释里那行 <a>，并把链接填进 href -->
+          <!--
+          <a class="btn edge" href="https://microsoftedge.microsoft.com/addons/detail/EDGE_ID">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 15c0-5 4-9 9-9 4 0 7 2 7 5s-3 5-7 5H8"></path>
+              <path d="M8 16h8"></path>
+            </svg>
+            Add to Edge
+          </a>
+          -->
+          <span class="btn soon" title="Submitted to Microsoft Edge Add-ons, waiting for certification">Add to Edge — in review</span>
         </div>
+        <div class="cta"><small>Free. No account, no watermark, no time limit.</small></div>
       </section>
 
       <figure class="shot">
@@ -103,7 +134,7 @@
           <ul>
             <li>Recordings never leave your device — nothing is uploaded.</li>
             <li>No account, no analytics, no remote code.</li>
-            <li>Capture starts only when you click the icon, and Chrome shows its own indicator.</li>
+            <li>Capture starts only when you click the icon, and the browser shows its own indicator.</li>
             <li>Please only record content you have the right to record.</li>
           </ul>
         </div>
@@ -118,4 +149,3 @@
     </div>
   </body>
 </html>
-
